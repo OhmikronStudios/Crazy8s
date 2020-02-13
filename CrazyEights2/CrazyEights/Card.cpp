@@ -24,6 +24,6 @@ char Card::getSuit() const
 string Card::toString() const
 {
 	stringstream ss;
-	ss << "Card: " << getValue() << " of " << getSuit() << "";
+	ss << "|" << getValue() << " of " << getSuit() << "|";
 	return ss.str();
 }

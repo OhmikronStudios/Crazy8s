@@ -38,12 +38,11 @@ string Deck::toString() const
 
 void Deck::Shuffle()
 {
-    /*unsigned seed = chrono::system_clock::now()
+    unsigned seed = chrono::system_clock::now()
         .time_since_epoch()
-        .count();*/
-    vector<Card> d;
-    shuffle(d.begin(), d.end(), default_random_engine());
+        .count();
+
+    shuffle(deck.begin(), deck.end(), default_random_engine(seed));
     return;
-    
 }
 #endif
