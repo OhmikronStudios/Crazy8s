@@ -5,7 +5,7 @@ Hand::Hand()
 
 }
 
-Hand:: ~Hand();
+Hand:: ~Hand()
 {
 
 }
