@@ -16,7 +16,7 @@ public:
 	void AddCard(Card);
 	void showCard(int cardNumber);
 	const string GetName();
-	void playCard(int);
+	void removeCard(vector<Card>&, int);
 	int getSize();
 };
 

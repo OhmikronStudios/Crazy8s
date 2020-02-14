@@ -29,10 +29,9 @@ const string Player::GetName()
 
 //void Player::playCard(int card)
 //{
-//	vector<Card>::const_iterator it = hand.begin(); it != hand.end(); it++)
-//	for (int i = 0; i < card; ++i)
-//		++it;
-//	hand.erase(it);
+//	Card temp = hand.at(card);
+//	hand.at(card) = hand.end();
+//	hand.end() = temp;
 //}
 
 int Player::getSize()
@@ -40,13 +39,14 @@ int Player::getSize()
 	return hand.size();
 	
 }
-void Player::playCard(vector<Card>& hand, int index)
-{
 
-	hand<Card>::const_iterator it = hand.begin();
+void Player::removeCard(vector<Card>& hand, int index)
+{
+	
+	vector<Card>const_iterator = it.hand.begin();
 	for (int i = 0; i < index; ++i)
 	{
-		+it;
+		++it;
 	}
 	hand.erase(it);
 }
