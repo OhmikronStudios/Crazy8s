@@ -26,10 +26,12 @@ int main()
     FirstDeal(activeGame);
 
     cout << "enter a card # from player 1's hand." << endl;
+  
     int card;
     cin >> card;
     Player activePlayer = activeGame.getPlayer(0);
     activePlayer.removeCard(card);
+    
     for (int i = 0; i < activePlayer.getSize(); i++)
     {
         activePlayer.showCard(i);

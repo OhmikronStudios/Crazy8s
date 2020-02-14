@@ -16,8 +16,9 @@ public:
 	void AddCard(Card);
 	void showCard(int cardNumber);
 	const string GetName();
-	void removeCard(vector<Card>&, int);
+	void removeCard(int);
 	int getSize();
+	/*getHand();*/
 };
 
 

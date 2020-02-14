@@ -39,8 +39,13 @@ int Player::getSize()
 	return hand.size();
 	
 }
+//Vector Player::getHand()
+//{
+//	return hand;
+//}
 
-void Player::removeCard(vector<Card>& hand, int index)
+
+void Player::removeCard(int index)
 {
 	
 	std::vector<Card>::const_iterator it = hand.begin();
