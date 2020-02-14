@@ -1,6 +1,5 @@
 #include "Player.h"
 
-
 Player::Player()
 {
 	
@@ -27,26 +26,16 @@ const string Player::GetName()
 	return name;
 }
 
-//void Player::playCard(int card)
-//{
-//	vector<Card>::const_iterator it = hand.begin(); it != hand.end(); it++)
-//	for (int i = 0; i < card; ++i)
-//		++it;
-//	hand.erase(it);
-//}
+void Player::playCard(int card)
+{
+	vector<Card>::const_iterator it = hand.begin();
+	for (int i = 0; i < card; ++i)
+		++it;
+	hand.erase(it);
+}
 
 int Player::getSize()
 {
 	return hand.size();
 	
-}
-void Player::playCard(vector<Card>& hand, int index)
-{
-
-	hand<Card>::const_iterator it = hand.begin();
-	for (int i = 0; i < index; ++i)
-	{
-		+it;
-	}
-	hand.erase(it);
 }
