@@ -45,4 +45,18 @@ void Deck::Shuffle()
     shuffle(deck.begin(), deck.end(), default_random_engine(seed));
     return;
 }
+
+Card Deck::getTopCard()
+{
+    Card topCard = deck.back();
+    return topCard;
+}
+
+void Deck::removeCard()
+{
+    deck.pop_back();
+}
+
+
+
 #endif

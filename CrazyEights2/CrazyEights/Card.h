@@ -9,11 +9,10 @@ using namespace std;
 class Card
 {
 public:
+	Card();
 	Card(int v, char s);
 	int getValue() const;
 	char getSuit() const;
-	//static int values[13];
-	//static char suits[4];
 	string toString() const;
 
 protected:

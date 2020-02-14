@@ -6,10 +6,18 @@ Game::Game()
 
 }
 
-void Game::AddPlayer(playerName)
+void Game::AddPlayer(string name)
 {
-	playerName = const string name;
-	Player(name);
-	players.push_back(name);
+	Player player(name);
+	players.push_back(player);
+}
 
+Player Game::getPlayer(int playerNumber)
+{
+	return players.at(playerNumber);
+}
+
+void Game::getCard(Card card)
+{
+	discardPile.push_back(card);
 }

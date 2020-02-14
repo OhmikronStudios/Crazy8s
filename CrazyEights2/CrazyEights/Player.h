@@ -7,14 +7,17 @@
 class Player
 {
 private:
-	const string name;
+	string name;
 	vector<Card> hand;
 
 public:
 	Player();
 	Player(string name);
-	//string getName() const;
-
+	void AddCard(Card);
+	void showCard(int cardNumber);
+	const string GetName();
+	void playCard(int);
+	int getSize();
 };
 
 

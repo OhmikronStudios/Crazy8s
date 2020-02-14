@@ -3,6 +3,10 @@
 #include "Card.h"
 
 
+Card::Card()
+{
+
+}
 
 Card::Card(int v, char s)
 {
