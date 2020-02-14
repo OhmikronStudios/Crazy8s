@@ -29,7 +29,7 @@ int main()
     int card;
     cin >> card;
     Player activePlayer = activeGame.getPlayer(0);
-    activePlayer.playCard(card);
+    activePlayer.removeCard(card);
     for (int i = 0; i < activePlayer.getSize(); i++)
     {
         activePlayer.showCard(i);
