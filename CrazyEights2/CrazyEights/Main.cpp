@@ -38,12 +38,6 @@ int main()
     }
     
 
-
-    
-    
-    
-    
-        
 }
 
 void FirstDeal(Game& activeGame)
@@ -53,6 +47,7 @@ void FirstDeal(Game& activeGame)
         Player activePlayer = activeGame.getPlayer(j);
         string playerName = activePlayer.GetName();
         cout << playerName << "'s hand is:";
+        
         for (int i = 0; i < 8; i++)
         {
             topCard = drawPile.getTopCard();
@@ -68,10 +63,8 @@ void FirstDeal(Game& activeGame)
 
 void setUp(Game& game)
 {
-    
     drawPile.Shuffle();
     cout << "Deck of cards: " << drawPile.toString() << endl; 
-    
 }
 
 void playerSetUp(Game& game)

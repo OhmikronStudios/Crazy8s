@@ -6,8 +6,8 @@
 class Game
 {
 private:
-	vector<Player> players;
-	vector<Card> discardPile;
+	vector<Player> c_players;
+	vector<Card> c_discardPile;
 
 public:
 	Game();

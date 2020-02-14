@@ -7,8 +7,8 @@
 class Deck 
 {
 private:
-	vector<Card> deck;
-	Card topCard;
+	vector<Card> c_deck;
+	Card c_topCard;
 
 
 public:

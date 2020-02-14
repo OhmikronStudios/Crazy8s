@@ -10,19 +10,19 @@ Card::Card()
 
 Card::Card(int v, char s)
 {
-	value = v;
-	suit = s;
+	c_value = v;
+	c_suit = s;
 }
 
 
 
 int Card::getValue() const
 {
-	return value;
+	return c_value;
 }
 char Card::getSuit() const
 {
-	return suit;
+	return c_suit;
 }
 
 string Card::toString() const

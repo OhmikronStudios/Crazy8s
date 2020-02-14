@@ -8,23 +8,23 @@ Player::Player()
 
 Player::Player(string name)
 {
-	name = name;
+	name = c_name;
 	return;
 }
 
 void Player::AddCard(Card card)
 {
-	hand.push_back(card);
+	c_hand.push_back(card);
 }
 
 void Player::showCard(int cardNumber)
 {
-	cout << hand.at(cardNumber).toString() << "\t";
+	cout << c_hand.at(cardNumber).toString() << "\t";
 }
 
-const string Player::GetName() 
+const string Player::GetName() const
 {
-	return name;
+	return c_name;
 }
 
 //void Player::playCard(int card)
@@ -36,7 +36,7 @@ const string Player::GetName()
 
 int Player::getSize()
 {
-	return hand.size();
+	return c_hand.size();
 	
 }
 //Vector Player::getHand()
@@ -48,10 +48,10 @@ int Player::getSize()
 void Player::removeCard(int index)
 {
 	
-	vector<Card>::const_iterator it = hand.begin();
+	vector<Card>::const_iterator it = c_hand.begin();
 	for (int i = 0; i < index; ++i)
 	{
 		++it;
 	}
-	hand.erase(it);
+	c_hand.erase(it);
 }

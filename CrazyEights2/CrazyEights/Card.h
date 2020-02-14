@@ -18,8 +18,8 @@ public:
 protected:
 
 private:
-	int value;
-	char suit;
+	int c_value;
+	char c_suit;
 
 
 };

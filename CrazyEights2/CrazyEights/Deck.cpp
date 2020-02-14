@@ -21,7 +21,7 @@ Deck::Deck() {
             }
 
             Card card(value, s);
-            deck.push_back(card);
+            c_deck.push_back(card);
         }
     }
 }
@@ -31,7 +31,7 @@ string Deck::toString() const
 	stringstream ss;
     for (int i = 0; i < 52; ++i)
     {
-        ss << ", " << deck[i].toString();
+        ss << ", " << c_deck[i].toString();
     }
 	return ss.str();
 }
@@ -42,19 +42,19 @@ void Deck::Shuffle()
         .time_since_epoch()
         .count();
 
-    shuffle(deck.begin(), deck.end(), default_random_engine(seed));
+    shuffle(c_deck.begin(), c_deck.end(), default_random_engine(seed));
     return;
 }
 
 Card Deck::getTopCard()
 {
-    Card topCard = deck.back();
+    Card topCard = c_deck.back();
     return topCard;
 }
 
 void Deck::removeCard()
 {
-    deck.pop_back();
+    c_deck.pop_back();
 }
 
 

@@ -9,15 +9,15 @@ Game::Game()
 void Game::AddPlayer(string name)
 {
 	Player player(name);
-	players.push_back(player);
+	c_players.push_back(player);
 }
 
 Player Game::getPlayer(int playerNumber)
 {
-	return players.at(playerNumber);
+	return c_players.at(playerNumber);
 }
 
 void Game::getCard(Card card)
 {
-	discardPile.push_back(card);
+	c_discardPile.push_back(card);
 }
