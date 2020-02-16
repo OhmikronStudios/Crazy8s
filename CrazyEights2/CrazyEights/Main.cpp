@@ -24,18 +24,19 @@ int main()
     setUp(activeGame);
     playerSetUp(activeGame);
     FirstDeal(activeGame);
-
-    cout << "enter a card # from player 1's hand." << endl;
-  
-    int card;
-    cin >> card;
-    Player activePlayer = activeGame.getPlayer(0);
-    activePlayer.removeCard(card);
     
+    Player activePlayer = activeGame.getPlayer(0);
     for (int i = 0; i < activePlayer.getSize(); i++)
     {
         activePlayer.showCard(i);
     }
+    cout << "enter a card # from player 1's hand." << endl;
+  
+    int card;
+    cin >> card;
+    activePlayer.removeCard(card);
+    
+    
     
 
 }
