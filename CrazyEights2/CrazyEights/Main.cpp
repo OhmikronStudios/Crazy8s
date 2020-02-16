@@ -25,7 +25,7 @@ int main()
     playerSetUp(activeGame);
     FirstDeal(activeGame);
     
-    Player activePlayer = activeGame.getPlayer(0);
+    Player& activePlayer = activeGame.getPlayer(0);
     for (int i = 0; i < activePlayer.getSize(); i++)
     {
         activePlayer.showCard(i);
@@ -35,7 +35,10 @@ int main()
     int card;
     cin >> card;
     activePlayer.removeCard(card);
-    
+    for (int i = 0; i < activePlayer.getSize(); i++)
+    {
+        activePlayer.showCard(i);
+    }
     
     
 
@@ -45,7 +48,7 @@ void FirstDeal(Game& activeGame)
 {
     for (int j = 0; j < playerCount; j++)
     {
-        Player activePlayer = activeGame.getPlayer(j);
+        Player& activePlayer = activeGame.getPlayer(j);
         string playerName = activePlayer.GetName();
         cout << playerName << "'s hand is:";
         

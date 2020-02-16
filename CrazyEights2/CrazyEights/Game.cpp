@@ -12,9 +12,9 @@ void Game::AddPlayer(string name)
 	c_players.push_back(player);
 }
 
-Player Game::getPlayer(int playerNumber)
+Player& Game::getPlayer(int playerNumber)
 {
-	return c_players.at(playerNumber);
+	return c_players[playerNumber];
 }
 
 void Game::getCard(Card card)

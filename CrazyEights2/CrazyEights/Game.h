@@ -12,7 +12,7 @@ private:
 public:
 	Game();
 	void AddPlayer(string name);
-	Player getPlayer(int playerNumber);
+	Player& getPlayer(int playerNumber);
 	void getCard(Card card);
 
 };
