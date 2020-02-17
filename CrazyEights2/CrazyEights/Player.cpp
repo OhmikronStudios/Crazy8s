@@ -1,14 +1,10 @@
 #include "Player.h"
 
 
-Player::Player()
-{
-	
-}
 
 Player::Player(string name)
 {
-	name = c_name;
+	c_name = name;
 	return;
 }
 
@@ -17,9 +13,10 @@ void Player::AddCard(Card card)
 	c_hand.push_back(card);
 }
 
-void Player::showCard(int cardNumber)
+string Player::showCard(int cardNumber)
 {
-	cout << c_hand.at(cardNumber).toString() << "\t";
+
+	return c_hand.at(cardNumber).toString();
 }
 
 const string Player::GetName() const
@@ -45,13 +42,16 @@ int Player::getSize()
 //}
 
 
-void Player::removeCard(int index)
+Card Player::removeCard(int index)
 {
 	
-	vector<Card>::const_iterator it = c_hand.begin();
+	vector<Card>::iterator it = c_hand.begin();
 	for (int i = 0; i < index; ++i)
 	{
 		++it;
 	}
+	Card card = (*it);
 	c_hand.erase(it);
+	return card;
 }
+

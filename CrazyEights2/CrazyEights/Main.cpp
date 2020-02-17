@@ -6,73 +6,81 @@
 
 using namespace std;
 
-int playerCount = 0;
-Deck drawPile;
-Card topCard;
-Game players;
+
+Deck drawPile; //should these be taken out and put only in their classes? - Yes... some rejigging will be needed here - both drawpile and deck should become members of game.
+
+
+// Card topDiscard; - will be used to validate the card selected to be played.
 
 
 
-void setUp(Game& game);
-void FirstDeal(Game& Game);
-void playerSetUp(Game& game);
+
+
+void gameSetUp(Game& game);
 
 
 int main()
 {
     Game activeGame;
-    setUp(activeGame);
-    playerSetUp(activeGame);
-    FirstDeal(activeGame);
-    
-    Player& activePlayer = activeGame.getPlayer(0);
-    for (int i = 0; i < activePlayer.getSize(); i++)
+    int currentPlayer = 0; //should be randomized
+    gameSetUp(activeGame);
+    while (activeGame.isGameWon() == false)
     {
-        activePlayer.showCard(i);
-    }
-    cout << "enter a card # from player 1's hand." << endl;
-  
-    int card;
-    cin >> card;
-    activePlayer.removeCard(card);
-    for (int i = 0; i < activePlayer.getSize(); i++)
-    {
-        activePlayer.showCard(i);
-    }
-    
-    
-
-}
-
-void FirstDeal(Game& activeGame)
-{
-    for (int j = 0; j < playerCount; j++)
-    {
-        Player& activePlayer = activeGame.getPlayer(j);
-        string playerName = activePlayer.GetName();
-        cout << playerName << "'s hand is:";
         
-        for (int i = 0; i < 8; i++)
+        
+
+
+
+        //Player plays a card - to be converted into a function called at the start of each player's turn.
+
+        Player& activePlayer = activeGame.getPlayer(currentPlayer);
+        int card;
+        do
         {
-            topCard = drawPile.getTopCard();
-            activePlayer.AddCard(topCard);
-            activePlayer.showCard(i);
-            drawPile.removeCard();
+
+            cout << activePlayer.GetName() << "'s Hand is:" << endl;
+            for (int i = 0; i < activePlayer.getSize(); i++)
+            {
+                cout << i << ". " << activePlayer.showCard(i) << endl;
+            }
+            cout << "The top card on the discard pile is: " << activeGame.getTopCardOfDiscard().toString() << endl;
+            cout << "enter a card # from player 1's hand." << endl << "if you are done with your turn, enter -1 to end turn" << endl;
+
+
+            cin >> card;
+            if (card >= 0)
+            {
+                //Validation check to see if the chosen card can be played legally
+                // if not legal && not valid, break; to restart the turn. (give false play warning)
+                //If it's valid, effect check to see if it's a special card that has a particular effect - 8's, 2's, J's, etc. 
+
+                Card dumbcard = activePlayer.removeCard(card);
+                activeGame.addToDiscard(dumbcard);
+
+                // move to next player's turn.
+            }
+        } while (card != -1);
+    
+
+        if (currentPlayer == activeGame.getPlayerCount()-1)
+        {
+            currentPlayer = 0;
         }
-        cout << endl;
+        else
+        {
+            currentPlayer += 1;
+        }
 
-
-    }
+    } 
+    //print Winner!
 }
 
-void setUp(Game& game)
+
+void gameSetUp(Game& game)
 {
     drawPile.Shuffle();
     cout << "Deck of cards: " << drawPile.toString() << endl; 
-}
-
-void playerSetUp(Game& game)
-{
+    int playerCount = 0;
     while (playerCount == 0)
     {
         cout << "Please enter a number of players between 2 and 4" << endl;
@@ -92,23 +100,38 @@ void playerSetUp(Game& game)
                 cout << "please enter the name of player " << i + 1 << endl;
                 cin >> playerName;
                 game.AddPlayer(playerName);
+
             }
 
         }
+
+    }
+
+    for (int j = 0; j < playerCount; j++)
+    {
+        Player& activePlayer = game.getPlayer(j);
+        string playerName = activePlayer.GetName();
+
+        Card topCard;
+        for (int i = 0; i < 8; i++)
+        {
+            topCard = drawPile.getTopCard();
+            activePlayer.AddCard(topCard);
+            drawPile.removeCard();
+        }
+
+        topCard = drawPile.getTopCard();
+        game.addToDiscard(topCard);
+        drawPile.removeCard();
+
+        cout << endl;
+
 
     }
 }
     
 
 
-
-
-    //Deck testDeck;
-    ////show deck before shuffle
-    //cout << "Deck of cards: " << testDeck.toString() << endl;
-
-    //testDeck.Shuffle();
-    //cout << "Deck of cards: " << testDeck.toString() << endl;
 
 
 

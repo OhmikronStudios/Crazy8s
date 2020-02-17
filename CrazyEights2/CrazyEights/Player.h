@@ -11,12 +11,12 @@ private:
 	vector<Card> c_hand;
 
 public:
-	Player();
+
 	Player(string name);
 	void AddCard(Card);
-	void showCard(int cardNumber);
+	string showCard(int cardNumber);
 	const string GetName() const;
-	void removeCard(int);
+	Card removeCard(int);
 	int getSize();
 };
 
